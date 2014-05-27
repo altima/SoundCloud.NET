@@ -264,6 +264,11 @@ namespace SoundCloud.NET
                 }
             }
 
+            catch (WebException e)
+            {
+                throw new SoundCloudException(e.Message);
+            }
+
             catch (SoundCloudException e)
             {
                 throw new SoundCloudException(string.Format("{0} : {1}", response.StatusCode, response.StatusDescription));
